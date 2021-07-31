@@ -28,7 +28,7 @@ namespace FunctionalTests
 
                 // Add a database context (ApplicationDbContext) using an in-memory 
                 // database for testing.
-                services.AddDbContext<InventuraContext>(options =>
+                services.AddDbContext<Infrastructure.Data.AppContext>(options =>
                 {
                     options.UseInMemoryDatabase("InMemoryDbForTesting");
                     options.UseInternalServiceProvider(provider);
@@ -48,7 +48,7 @@ namespace FunctionalTests
                 using (var scope = sp.CreateScope())
                 {
                     var scopedServices = scope.ServiceProvider;
-                    var db = scopedServices.GetRequiredService<InventuraContext>();
+                    var db = scopedServices.GetRequiredService<Infrastructure.Data.AppContext>();
                     var loggerFactory = scopedServices.GetRequiredService<ILoggerFactory>();
 
                     var logger = scopedServices
@@ -60,7 +60,7 @@ namespace FunctionalTests
                     try
                     {
                         // Seed the database with test data.
-                        InventuraContextSeed.SeedAsync(db, loggerFactory).Wait();
+                        AppContextSeed.SeedAsync(db, loggerFactory).Wait();
 
                         // seed sample user data
                         var userManager = scopedServices.GetRequiredService<UserManager<ApplicationUser>>();

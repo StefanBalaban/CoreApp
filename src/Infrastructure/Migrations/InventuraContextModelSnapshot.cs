@@ -9,7 +9,7 @@ using Infrastructure.Data;
 
 namespace Infrastructure.Migrations
 {
-    [DbContext(typeof(InventuraContext))]
+    [DbContext(typeof(Data.AppContext))]
     internal partial class InventuraContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

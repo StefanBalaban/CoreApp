@@ -14,7 +14,7 @@ namespace Infrastructure.Identity
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer(
-        //        "Data Source=.;Integrated Security=true;Initial Catalog=Inventura.AppIdentity;");
+        //        "Data Source=.;Integrated Security=true;Initial Catalog=Identity;");
         //    base.OnConfiguring(optionsBuilder);
         //}
     }

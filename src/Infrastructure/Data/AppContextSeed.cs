@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
-    public class InventuraContextSeed
+    public class AppContextSeed
     {
-        public static async Task SeedAsync(InventuraContext catalogContext,
+        public static async Task SeedAsync(AppContext catalogContext,
             ILoggerFactory loggerFactory, int? retry = 0)
         {
             int retryForAvailability = retry.Value;
@@ -39,7 +39,7 @@ namespace Infrastructure.Data
                 if (retryForAvailability < 10)
                 {
                     retryForAvailability++;
-                    var log = loggerFactory.CreateLogger<InventuraContextSeed>();
+                    var log = loggerFactory.CreateLogger<AppContextSeed>();
                     log.LogError(ex.Message);
                     await SeedAsync(catalogContext, loggerFactory, retryForAvailability);
                 }

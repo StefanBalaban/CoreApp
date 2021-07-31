@@ -17,9 +17,9 @@ namespace Infrastructure.Data
     /// <typeparam name="T"></typeparam>
     public class EfRepository<T> : IAsyncRepository<T> where T : BaseEntity, IAggregateRoot
     {
-        protected readonly InventuraContext _dbContext;
+        protected readonly AppContext _dbContext;
 
-        public EfRepository(InventuraContext dbContext)
+        public EfRepository(AppContext dbContext)
         {
             _dbContext = dbContext;
         }

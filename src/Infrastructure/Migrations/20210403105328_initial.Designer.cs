@@ -9,7 +9,7 @@ using Infrastructure.Data;
 
 namespace Infrastructure.Migrations
 {
-    [DbContext(typeof(InventuraContext))]
+    [DbContext(typeof(Data.AppContext))]
     [Migration("20210403105328_initial")]
     partial class initial
     {

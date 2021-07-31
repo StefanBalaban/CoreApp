@@ -49,7 +49,7 @@ namespace PublicApi.Util
 
         private void ConfigureInMemoryDatabases(IServiceCollection services)
         {
-            services.AddDbContext<InventuraContext>(c =>
+            services.AddDbContext<AppContext>(c =>
                 c.UseInMemoryDatabase("Catalog"));
 
             services.AddDbContext<AppIdentityDbContext>(options =>
@@ -63,8 +63,8 @@ namespace PublicApi.Util
             // use real database
             // Requires LocalDB which can be installed with SQL Server Express 2016
             // https://www.microsoft.com/en-us/download/details.aspx?id=54284
-            services.AddDbContext<InventuraContext>(c =>
-                c.UseSqlServer(Configuration.GetConnectionString("InventuraConnection")));
+            services.AddDbContext<AppContext>(c =>
+                c.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
             // Add Identity DbContext
             services.AddDbContext<AppIdentityDbContext>(options =>
@@ -86,8 +86,8 @@ namespace PublicApi.Util
                 .AddEntityFrameworkStores<AppIdentityDbContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddDbContext<InventuraContext>(c =>
-                c.UseSqlServer(Configuration.GetConnectionString("InventuraConnection")));
+            services.AddDbContext<AppContext>(c =>
+                c.UseSqlServer(Configuration.GetConnectionString("DbConnection")));
 
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));

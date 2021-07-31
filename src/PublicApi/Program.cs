@@ -23,8 +23,8 @@ namespace PublicApi.Util
                 var loggerFactory = services.GetRequiredService<ILoggerFactory>();
                 try
                 {
-                    var catalogContext = services.GetRequiredService<InventuraContext>();
-                    await InventuraContextSeed.SeedAsync(catalogContext, loggerFactory);
+                    var catalogContext = services.GetRequiredService<Infrastructure.Data.AppContext>();
+                    await AppContextSeed.SeedAsync(catalogContext, loggerFactory);
 
                     var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();

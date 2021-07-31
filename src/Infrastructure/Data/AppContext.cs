@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace Infrastructure.Data
 {
-    public class InventuraContext : DbContext
+    public class AppContext : DbContext
     {
-        public InventuraContext(DbContextOptions<InventuraContext> options) : base(options)
+        public AppContext(DbContextOptions<AppContext> options) : base(options)
         {
         }
 
@@ -16,7 +16,7 @@ namespace Infrastructure.Data
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    optionsBuilder.UseSqlServer(
-        //        "Data Source=.;Integrated Security=true;Initial Catalog=Inventura.InventuraDb;");
+        //        "Data Source=.;Integrated Security=true;Initial Catalog=AppDb;");
         //    base.OnConfiguring(optionsBuilder);
         //}
 
